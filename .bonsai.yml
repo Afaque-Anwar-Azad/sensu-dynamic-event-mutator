@@ -32,7 +32,7 @@
     filter:
     -  "entity.system.os == 'linux'"
     -  "entity.system.arch == 'arm'"
-        -  "entity.system.arm_version == 7"
+    -  "entity.system.arm_version == 7"
 
   - platform: "linux"
     arch: "armv6"
