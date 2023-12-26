@@ -19,13 +19,12 @@
 
 
 The Sensu dynamic event mutator enriches the event payload by seamlessly incorporating 
-details of both labels and annotations. These specific labels and annotations information
-are sourced from the associated entity(event.entity.name), enriching the overall
-contextual information of the event payload.
+details of both labels and annotations. These specific labels and annotations data
+are sourced from the associated entity, enriching the overall contextual 
+information of the event payload.
 
-Key enhancements to the event fields:
-event.entity.labels
-event.entity.annotations
+Key enhancements to the event payload are on event.Entity.Labels and event.Entity.Annotations
+
 
 
 ## Usage examples
@@ -66,6 +65,8 @@ If you're using an earlier version of sensuctl, you can find the asset on the [B
 
 ### Mutator definition
 
+Example mutator code snippet for adding labels :
+
 ```yml
 ---
 type: Mutator
@@ -78,6 +79,57 @@ spec:
   runtime_assets:
   - Afaque-Anwar-Azad/sensu-dynamic-event-mutator
 ```
+
+
+
+Example mutator definition for adding both labels and annotations :
+
+```yml
+---
+type: Mutator
+api_version: core/v2
+metadata:
+  name: sensu-dynamic-event-mutator
+  namespace: default
+spec:
+  command: sensu-dynamic-event-mutator --add-all
+  runtime_assets:
+  - Afaque-Anwar-Azad/sensu-dynamic-event-mutator
+```
+
+
+Dynamically mutated event output payload :
+
+
+```yml
+---
+check: {}
+entity:
+  entity_class: agent
+  system: {}
+  subscriptions: {}
+  last_seen: ""
+  deregister: false
+  deregistration: {}
+  user: agent
+  metadata:
+    name: ip-172-31-0-1.eu-west-1.compute.internal
+    namespace: default
+    labels:
+      availabilityzone: eu-west-1b
+      awsregion: eu-west-1b
+      instancetype: 172.31.0.1
+    annotations:
+      availabilityzone: eu-west-1b
+      awsregion: eu-west-1b
+      instancetype: 172.31.0.1
+  sensu_agent_version: ""
+  keepalive_handlers: ""
+id: XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX
+metadata: {}
+time: '2222-12-13T11:49:34Z'
+```
+
 
 ## Installation from source
 
