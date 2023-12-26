@@ -34,9 +34,9 @@ Usage:
   sensu-dynamic-event-mutator [command]
 
 example commands:
-  sensu-dynamic-event-mutator --add-labels
-  sensu-dynamic-event-mutator --add-annotations
-  sensu-dynamic-event-mutator --add-all
+1. sensu-dynamic-event-mutator --add-labels
+2. sensu-dynamic-event-mutator --add-annotations
+3. sensu-dynamic-event-mutator --add-all
 
 ### Environment variables
 
