@@ -65,7 +65,7 @@ If you're using an earlier version of sensuctl, you can find the asset on the [B
 
 ### Mutator definition
 
-Example mutator code snippet for adding labels :
+Example mutator definition for adding labels :
 
 ```yml
 ---
